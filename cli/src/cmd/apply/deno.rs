@@ -4,16 +4,16 @@
 
 use crate::cmd::apply::chiselc_output;
 use crate::cmd::apply::parse_indexes;
-use crate::codegen::codegen_root_module;
-use crate::events::FileTopicMap;
 use crate::proto::{IndexCandidate, Module};
-use crate::routes::FileRouteMap;
 use anyhow::{anyhow, bail, Context, Result};
 use endpoint_tsc::Compiler;
 use std::collections::HashMap;
 use std::io::Write;
 use std::path::{Path, PathBuf};
 use url::Url;
+use utils::codegen::codegen_root_module;
+use utils::events::FileTopicMap;
+use utils::routes::FileRouteMap;
 
 pub(crate) async fn apply(
     route_map: FileRouteMap,

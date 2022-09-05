@@ -1,7 +1,5 @@
 // SPDX-FileCopyrightText: © 2021 ChiselStrike <info@chiselstrike.com>
 
-use crate::events::{build_file_topic_map, FileTopicMap};
-use crate::routes::{build_file_route_map, FileRouteMap};
 use anyhow::{Context, Result};
 use handlebars::Handlebars;
 use serde_derive::Deserialize;
@@ -10,6 +8,8 @@ use std::fmt::Write;
 use std::fs;
 use std::io::{stdin, ErrorKind, Read};
 use std::path::{Path, PathBuf};
+use utils::events::{build_file_topic_map, FileTopicMap};
+use utils::routes::{build_file_route_map, FileRouteMap};
 
 const MANIFEST_FILE: &str = "Chisel.toml";
 const TYPES_DIR: &str = "./models";

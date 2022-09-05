@@ -8,7 +8,7 @@ use std::path::{Path, PathBuf};
 ///
 /// We generate a TypeScript `RouteMap` from this struct.
 #[derive(Debug, Default)]
-pub(crate) struct FileRouteMap {
+pub struct FileRouteMap {
     pub routes: Vec<FileRoute>,
 }
 
@@ -22,7 +22,7 @@ pub(crate) struct FileRouteMap {
 /// - file `user/[id]/posts.ts' -> route `"/user/:id/posts"`
 /// - file `user/_root.ts` -> route `"/user"`, and other files in the directory `user/` are ignored
 #[derive(Debug)]
-pub(crate) struct FileRoute {
+pub struct FileRoute {
     /// Absolute path to the file with the route.
     pub file_path: PathBuf,
     /// URL Pattern path for this route.
@@ -32,10 +32,7 @@ pub(crate) struct FileRoute {
     pub legacy_file_name: Option<String>,
 }
 
-pub(crate) fn build_file_route_map(
-    base_dir: &Path,
-    route_dirs: &[PathBuf],
-) -> Result<FileRouteMap> {
+pub fn build_file_route_map(base_dir: &Path, route_dirs: &[PathBuf]) -> Result<FileRouteMap> {
     let mut route_map = FileRouteMap::default();
     for route_dir in route_dirs.iter() {
         let route_dir = base_dir.join(route_dir);

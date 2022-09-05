@@ -5956,6 +5956,7 @@ dependencies = [
  "anyhow",
  "async-channel",
  "futures-core",
+ "guard",
  "nix 0.22.3",
  "reqwest",
  "tokio",

@@ -18,10 +18,7 @@ use structopt::StructOpt;
 use tokio::process::Child;
 
 mod cmd;
-mod codegen;
-mod events;
 mod project;
-mod routes;
 mod server;
 mod ts;
 

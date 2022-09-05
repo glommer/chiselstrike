@@ -3,15 +3,15 @@
 use crate::cmd::apply::chiselc_spawn;
 use crate::cmd::apply::parse_indexes;
 use crate::cmd::apply::TypeChecking;
-use crate::codegen::codegen_root_module;
-use crate::events::FileTopicMap;
 use crate::project::read_to_string;
 use crate::proto::{IndexCandidate, Module};
-use crate::routes::FileRouteMap;
 use anyhow::{anyhow, bail, Context, Result};
 use std::ffi::{OsStr, OsString};
 use std::path::Path;
 use std::{env, fs};
+use utils::codegen::codegen_root_module;
+use utils::events::FileTopicMap;
+use utils::routes::FileRouteMap;
 
 pub(crate) async fn apply(
     mut route_map: FileRouteMap,

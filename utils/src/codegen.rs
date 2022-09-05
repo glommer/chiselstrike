@@ -5,7 +5,7 @@ use crate::routes::FileRouteMap;
 use anyhow::{Context, Result};
 use std::path::Path;
 
-pub(crate) fn codegen_root_module(
+pub fn codegen_root_module(
     route_map: &FileRouteMap,
     topic_map: &FileTopicMap,
     import_fn: &dyn Fn(&Path) -> Result<String>,

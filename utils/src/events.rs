@@ -10,23 +10,20 @@ use std::path::{Path, PathBuf};
 ///
 /// We generate a TypeScript `TopicMap` from this struct.
 #[derive(Debug, Default)]
-pub(crate) struct FileTopicMap {
+pub struct FileTopicMap {
     pub topics: Vec<FileTopic>,
 }
 
 /// A file with event handler for a Kafka topic.
 #[derive(Debug)]
-pub(crate) struct FileTopic {
+pub struct FileTopic {
     /// Absolute path to the file with the event handler.
     pub file_path: PathBuf,
     /// Kafka topic for this handler.
     pub topic: String,
 }
 
-pub(crate) fn build_file_topic_map(
-    base_dir: &Path,
-    event_dirs: &[PathBuf],
-) -> Result<FileTopicMap> {
+pub fn build_file_topic_map(base_dir: &Path, event_dirs: &[PathBuf]) -> Result<FileTopicMap> {
     let mut topic_map = FileTopicMap::default();
 
     for event_dir in event_dirs.iter() {
